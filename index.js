@@ -3,25 +3,14 @@
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
-const tg = new Telegram.Telegram('450611611:AAEy22PkmyGgZP5sRzXWc4pAiWvnRC-e4WY')
+const RegexpCommand = Telegram.RegexpCommand
+const telegram = new Telegram.Telegram('450611611:AAEy22PkmyGgZP5sRzXWc4pAiWvnRC-e4WY', {
+    workers: 1
+})
 
-class PingController extends TelegramBaseController {
-    /**
-     * @param {Scope} $
-     */
-    pingHandler($) {
-        $.sendMessage('pong')
-    }
 
-    get routes() {
-        return {
-            'pingCommand': 'pingHandler'
-        }
-    }
-}
+var StartController = require("./start").StartController;
 
-tg.router
-    .when(
-        new TextCommand('ping', 'pingCommand'),
-        new PingController()
-    )
+telegram.router
+    .when(new RegexpCommand(/ciao|hey|we|ping/i), new StartController())
+    .when(new TextCommand('/start'), new StartController())
