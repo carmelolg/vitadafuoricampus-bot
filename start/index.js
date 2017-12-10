@@ -3,7 +3,7 @@ const TelegramBaseController = Telegram.TelegramBaseController
 class StartController extends TelegramBaseController {
 
     /**
-     * @param {Scope} sender
+     * @param {Scope} $
      */
     handle($) {
         $.sendMessage('Benvenuto nel bot di Vita da fuori campus!')

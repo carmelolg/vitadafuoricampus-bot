@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "express": "^4.16.2",
-    "telegram-node-bot": "^4.0.5"
+    "telegram-node-bot": "^4.0.5",
+    "wpapi": "^1.1.2"
   },
   "license": {
     "type": "GNU 3.0",

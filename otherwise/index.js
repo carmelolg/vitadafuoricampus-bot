@@ -3,7 +3,7 @@ const TelegramBaseController = Telegram.TelegramBaseController
 class OtherwiseController extends TelegramBaseController {
 
     /**
-     * @param {Scope} sender
+     * @param {Scope} $
      */
     handle($) {
         $.sendMessage('Comando non riconosciuto. Riprova!')
