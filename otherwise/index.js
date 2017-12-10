@@ -1,15 +1,15 @@
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
-class StartController extends TelegramBaseController {
+class OtherwiseController extends TelegramBaseController {
 
     /**
      * @param {Scope} sender
      */
     handle($) {
-        $.sendMessage('Benvenuto nel bot di Vita da fuori campus!')
+        $.sendMessage('Comando non riconosciuto. Riprova!')
     }
 }
 
 
 // module.export{
-module.exports.StartController = StartController;
+module.exports.OtherwiseController = OtherwiseController;
