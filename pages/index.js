@@ -1,8 +1,8 @@
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
-const WPAPI = require('wpapi')
-const Parameters = require('./../credentials.js')
+
 const Constants = require('./../constants.js')
+const wpapi = require('./../wpapi.js').wpapi;
 
 class PagesController extends TelegramBaseController {
 
@@ -11,14 +11,7 @@ class PagesController extends TelegramBaseController {
      */
     handle($) {
 
-        const apiPromise = WPAPI.discover(Parameters.blogsite).then(function (site) {
-            return site.auth({
-                username: Parameters.wpUsername,
-                password: Parameters.wpPassword
-            });
-        });
-
-        apiPromise.then(function (site) {
+        wpapi.then(function (site) {
             site.pages().get(function (err, data) {
                 if (data){
 
