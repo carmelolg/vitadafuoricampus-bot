@@ -18,3 +18,4 @@ telegram.router
     .when(new TextCommand('/start'), new StartController())
     .when(new TextCommand('/last'), new PostsController())
     .otherwise(new OtherwiseController())
+
